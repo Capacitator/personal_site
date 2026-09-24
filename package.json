@@ -6,12 +6,17 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "astro": "^7.3.4"
   },
   "allowScripts": {
-    "esbuild@0.28.2": true
+    "esbuild@0.28.1": true,
+    "workerd@1.20260921.1": true
+  },
+  "devDependencies": {
+    "wrangler": "^4.138.0"
   }
 }
