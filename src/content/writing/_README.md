@@ -14,6 +14,6 @@ tags: []
 Article text goes here.
 ```
 
-Use `draft: true` while an article is in progress. Drafts are available locally during development but omitted from public builds. Set it to `false` (or remove it) when ready to publish. `updatedDate` is optional.
+New articles default to drafts, so an omitted `draft` field is safe. Keep `draft: true` while writing; drafts are available locally during development but omitted from public builds. Set `draft: false` when ready to publish. `updatedDate` is optional. The page title becomes the article’s single H1, so start body sections at `##`.
 
 Files beginning with an underscore are ignored by the content collection. `hello-from-markdown.md` is the small published example for this workflow.

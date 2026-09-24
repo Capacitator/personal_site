@@ -19,9 +19,15 @@ export async function getStaticPaths() {
 const { entry } = Astro.props as Props;
 const { Content } = await render(entry);
 const allArticles = await getCollection('writing', ({ data }) => !data.draft);
-const related = allArticles
-  .filter((article) => article.id !== entry.id && article.data.category === entry.data.category)
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+const chronologicalArticles = allArticles
+  .slice()
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const currentIndex = chronologicalArticles.findIndex((article) => article.id === entry.id);
+const previousArticle = chronologicalArticles[currentIndex + 1];
+const related = chronologicalArticles
+  .filter((article) =>
+    article.id !== entry.id && article.id !== previousArticle?.id && article.data.category === entry.data.category,
+  )
   .slice(0, 3);
 
 const formatDate = (date: Date) => new Intl.DateTimeFormat('en', {
@@ -47,10 +53,18 @@ const formatDate = (date: Date) => new Intl.DateTimeFormat('en', {
           <span>Updated <time datetime={entry.data.updatedDate.toISOString()}>{formatDate(entry.data.updatedDate)}</time></span>
         </>}
       </p>
-      <div class="article-content"><Content /></div>
       {entry.data.tags.length > 0 && (
-        <p class="article-tags" aria-label="Tags">{entry.data.tags.join(' · ')}</p>
+        <ul class="article-tags" aria-label="Tags">
+          {entry.data.tags.map((tag) => <li>{tag}</li>)}
+        </ul>
       )}
+      <div class="article-content"><Content /></div>
+      <nav class="article-navigation" aria-label="Article navigation">
+        {previousArticle && (
+          <a href={`/writing/${previousArticle.id}`}>← Previous: {previousArticle.data.title}</a>
+        )}
+        <a href="/writing">Back to all writing</a>
+      </nav>
     </article>
 
     {related.length > 0 && (

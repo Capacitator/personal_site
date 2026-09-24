@@ -9,7 +9,8 @@ const writing = defineCollection({
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     category: z.string(),
-    draft: z.boolean().default(false),
+    // New articles stay unpublished unless they are explicitly marked ready.
+    draft: z.boolean().default(true),
     tags: z.array(z.string()).default([]),
   }),
 });
