@@ -56,6 +56,21 @@ const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': grap
     {site.googleSiteVerification && (
       <meta name="google-site-verification" content={site.googleSiteVerification} />
     )}
+    {site.googleAnalyticsId && (
+      <>
+        <script
+          async
+          is:inline
+          src={`https://www.googletagmanager.com/gtag/js?id=${site.googleAnalyticsId}`}
+        ></script>
+        <script is:inline define:vars={{ measurementId: site.googleAnalyticsId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { window.dataLayer.push(arguments); }
+          gtag('js', new Date());
+          gtag('config', measurementId);
+        </script>
+      </>
+    )}
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />

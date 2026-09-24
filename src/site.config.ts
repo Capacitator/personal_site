@@ -6,6 +6,7 @@ export const site = {
   description: 'The personal website of Sufal Kumar Chhabra: researcher, developer, teacher, and writer.',
   defaultOgImage: '/og-default.png',
   googleSiteVerification: 'L3YsSGhITU3CWtsm2tgNAPlV4uJ128zpdIEhvGZiXFA',
+  googleAnalyticsId: 'G-VRHGC4RHPY',
   navigation: [
     { label: 'Home', href: '/' },
     { label: 'About', href: '/about' },
