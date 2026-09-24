@@ -1,8 +1,42 @@
 ---
-import SiteLayout from '../layouts/SiteLayout.astro';
+import { getCollection } from 'astro:content';
 import PageHeader from '../components/PageHeader.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+
+const articles = (await getCollection('writing', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const formatDate = (date: Date) => new Intl.DateTimeFormat('en', {
+  day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC',
+}).format(date);
 ---
 
 <SiteLayout title="Writing" description="Notes, essays, and writing by Sufal Kumar Chhabra.">
-  <div class="page-content"><PageHeader eyebrow="Ideas in progress" title="Writing" description="Essays, notes, and things I’m still figuring out how to say." /></div>
+  <div class="page-content writing-page">
+    <PageHeader
+      eyebrow="Ideas in progress"
+      title="Writing"
+      description="Essays, notes, and things I’m still figuring out how to say."
+    />
+
+    {articles.length > 0 ? (
+      <ol class="writing-list">
+        {articles.map((article) => (
+          <li>
+            <article class="writing-listing">
+              <p class="article-meta">
+                <time datetime={article.data.pubDate.toISOString()}>{formatDate(article.data.pubDate)}</time>
+                <span aria-hidden="true">·</span>
+                <span>{article.data.category}</span>
+              </p>
+              <h2><a href={`/writing/${article.id}`}>{article.data.title}</a></h2>
+              <p class="listing-description">{article.data.description}</p>
+            </article>
+          </li>
+        ))}
+      </ol>
+    ) : (
+      <p class="writing-empty">No writing published yet. Check back soon.</p>
+    )}
+  </div>
 </SiteLayout>

@@ -7,7 +7,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "deploy": "npm run build && wrangler deploy"
+    "deploy": "npm run deploy:production",
+    "deploy:production": "npm run build && wrangler deploy --env ''",
+    "deploy:test": "npm run build && wrangler deploy --env test"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

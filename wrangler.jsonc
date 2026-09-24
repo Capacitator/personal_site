@@ -4,5 +4,11 @@
   "compatibility_date": "2026-09-25",
   "assets": {
     "directory": "./dist"
+  },
+  "env": {
+    "test": {
+      "name": "test",
+      "workers_dev": true
+    }
   }
 }
