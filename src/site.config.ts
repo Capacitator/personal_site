@@ -2,7 +2,9 @@ export const site = {
   name: 'Sufal Kumar Chhabra',
   shortName: 'SKC',
   url: 'https://skc.sufal-chhabra.workers.dev',
+  tagline: 'Researcher · Developer · Teacher · Writer',
   description: 'The personal website of Sufal Kumar Chhabra: researcher, developer, teacher, and writer.',
+  defaultOgImage: '/og-default.png',
   navigation: [
     { label: 'Home', href: '/' },
     { label: 'About', href: '/about' },

@@ -31,12 +31,19 @@ const formatDate = (date: Date) => new Intl.DateTimeFormat('en', {
               </p>
               <h2><a href={`/writing/${article.id}`}>{article.data.title}</a></h2>
               <p class="listing-description">{article.data.description}</p>
+              {article.data.tags.length > 0 && (
+                <ul class="preview-tags" aria-label="Article tags">
+                  {article.data.tags.slice(0, 3).map((tag) => <li>{tag}</li>)}
+                </ul>
+              )}
             </article>
           </li>
         ))}
       </ol>
     ) : (
-      <p class="writing-empty">No writing published yet. Check back soon.</p>
+      <div class="quiet-panel writing-empty">
+        <p>There’s no published writing here yet. New articles will appear when they’re ready to share.</p>
+      </div>
     )}
   </div>
 </SiteLayout>

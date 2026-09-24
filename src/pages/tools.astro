@@ -1,8 +1,15 @@
 ---
-import SiteLayout from '../layouts/SiteLayout.astro';
-import PageHeader from '../components/PageHeader.astro';
+import ToolPage from '../components/ToolPage.astro';
+import Section from '../components/Section.astro';
 ---
 
-<SiteLayout title="Tools" description="Useful online tools made by Sufal Kumar Chhabra.">
-  <div class="page-content"><PageHeader eyebrow="Small things that help" title="Tools" description="Useful little tools and utilities, collected in one place." /></div>
-</SiteLayout>
+<ToolPage
+  title="Tools"
+  eyebrow="Small things that help"
+  description="Useful little tools and utilities, collected in one place."
+>
+  <Section title="A small workshop">
+    <p>The tools section is ready to grow. Each utility will have its own focused page, with a clear interface and a short explanation of how it works.</p>
+    <p>The first tools will appear here when they’re ready.</p>
+  </Section>
+</ToolPage>

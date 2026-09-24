@@ -1,13 +1,43 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
 import PageHeader from './PageHeader.astro';
-interface Props { title: string; description: string; }
-const { title, description } = Astro.props;
+interface Props { title: string; description: string; eyebrow?: string; }
+const { title, description, eyebrow = 'A small utility' } = Astro.props;
 ---
 
 <SiteLayout title={title} description={description}>
-  <div class="page-content">
-    <PageHeader eyebrow="A small utility" title={title} description={description} />
-    <section class="content-section"><slot /></section>
+  <div class="page-content tool-page">
+    <PageHeader eyebrow={eyebrow} title={title} description={description} />
+    <slot />
+    {Astro.slots.has('interface') && (
+      <section class="tool-interface" aria-labelledby="tool-interface-title">
+        <h2 id="tool-interface-title">Use the tool</h2>
+        <slot name="interface" />
+      </section>
+    )}
+    {Astro.slots.has('explanation') && (
+      <section class="tool-section" aria-labelledby="tool-explanation-title">
+        <h2 id="tool-explanation-title">What it does</h2>
+        <slot name="explanation" />
+      </section>
+    )}
+    {Astro.slots.has('how-it-works') && (
+      <section class="tool-section" aria-labelledby="tool-how-title">
+        <h2 id="tool-how-title">How it works</h2>
+        <slot name="how-it-works" />
+      </section>
+    )}
+    {Astro.slots.has('faq') && (
+      <section class="tool-section" aria-labelledby="tool-faq-title">
+        <h2 id="tool-faq-title">Questions</h2>
+        <slot name="faq" />
+      </section>
+    )}
+    {Astro.slots.has('related') && (
+      <section class="tool-section" aria-labelledby="related-tools-title">
+        <h2 id="related-tools-title">Related tools</h2>
+        <slot name="related" />
+      </section>
+    )}
   </div>
 </SiteLayout>

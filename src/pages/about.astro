@@ -1,8 +1,17 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
+import Section from '../components/Section.astro';
 ---
 
 <SiteLayout title="About" description="A little about Sufal Kumar Chhabra.">
-  <div class="page-content"><PageHeader eyebrow="A little context" title="About" description="A short introduction to who I am, what I care about, and the work I do." /></div>
+  <div class="page-content section-page">
+    <PageHeader eyebrow="A little context" title="About" description="A short introduction to who I am, what I care about, and the work I do." />
+    <Section title="A work in progress">
+      <p>This page will grow into a fuller introduction to my background, interests, and the ideas that shape my work.</p>
+    </Section>
+    <Section title="Around the site">
+      <p>For now, you can <a href="/writing">read what I’m thinking about</a> or <a href="/projects">explore the work I’m sharing</a>.</p>
+    </Section>
+  </div>
 </SiteLayout>

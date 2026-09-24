@@ -3,6 +3,12 @@ import { site } from '../site.config';
 ---
 
 <footer class="site-footer">
-  <p>© {new Date().getFullYear()} {site.name}</p>
-  <a href="#top">Back to top ↑</a>
+  <div class="footer-identity">
+    <a class="footer-wordmark" href="/">{site.shortName}<span>.</span></a>
+    <p>{site.tagline}</p>
+  </div>
+  <div class="footer-meta">
+    <small>© {new Date().getFullYear()} {site.name}</small>
+    <a href="#top">Back to top ↑</a>
+  </div>
 </footer>

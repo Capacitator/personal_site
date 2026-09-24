@@ -7,14 +7,20 @@ import Section from '../components/Section.astro';
   title="Home"
   description="The personal website of Sufal Kumar Chhabra: researcher, developer, teacher, and writer."
 >
-  <section class="page-content">
+  <section class="home-intro" aria-labelledby="home-title">
     <p class="eyebrow">A personal website</p>
-    <h1>Sufal Kumar Chhabra</h1>
+    <h1 id="home-title">Sufal Kumar Chhabra</h1>
     <p class="tagline">Researcher · Developer · Teacher · Writer</p>
-    <span class="divider" aria-hidden="true"></span>
-    <p class="page-description">Curious about ideas, how things work, and what we can make together.</p>
+    <p class="home-summary">A place for my work, writing, useful tools, and experiments—collected as they take shape.</p>
   </section>
-  <Section title="Explore">
-    <p>Writing, research, useful tools, and playful experiments will all have a home here.</p>
+  <Section title="Explore" id="explore">
+    <nav class="explore-links" aria-label="Explore the site">
+      <a class="explore-link" href="/about"><span><strong>About</strong><small>Learn a little about me</small></span><span aria-hidden="true">↗</span></a>
+      <a class="explore-link" href="/writing"><span><strong>Writing</strong><small>Read notes and essays</small></span><span aria-hidden="true">↗</span></a>
+      <a class="explore-link" href="/projects"><span><strong>Projects</strong><small>See what I’m working on</small></span><span aria-hidden="true">↗</span></a>
+      <a class="explore-link" href="/tools"><span><strong>Tools</strong><small>Use something practical</small></span><span aria-hidden="true">↗</span></a>
+      <a class="explore-link" href="/fun"><span><strong>Fun</strong><small>Explore playful experiments</small></span><span aria-hidden="true">↗</span></a>
+      <a class="explore-link" href="/contact"><span><strong>Contact</strong><small>Get in touch</small></span><span aria-hidden="true">↗</span></a>
+    </nav>
   </Section>
 </SiteLayout>
