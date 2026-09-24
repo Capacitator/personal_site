@@ -1,0 +1,14 @@
+---
+import { site } from '../site.config';
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<nav aria-label="Main navigation">
+  {site.navigation.map((item) => (
+    <a
+      href={item.href}
+      aria-current={currentPath === item.href ? 'page' : undefined}
+      class:active={currentPath === item.href}
+    >{item.label}</a>
+  ))}
+</nav>

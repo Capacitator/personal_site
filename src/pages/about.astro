@@ -1,11 +1,8 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
 ---
 
 <SiteLayout title="About" description="A little about Sufal Kumar Chhabra.">
-  <section class="page-content">
-    <p class="eyebrow">A little context</p>
-    <h1>About</h1>
-    <p class="page-description">A short introduction to who I am, what I care about, and the work I do.</p>
-  </section>
+  <div class="page-content"><PageHeader eyebrow="A little context" title="About" description="A short introduction to who I am, what I care about, and the work I do." /></div>
 </SiteLayout>

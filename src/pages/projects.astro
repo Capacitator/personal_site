@@ -1,11 +1,8 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
 ---
 
 <SiteLayout title="Projects" description="Projects and research by Sufal Kumar Chhabra.">
-  <section class="page-content">
-    <p class="eyebrow">Work and research</p>
-    <h1>Projects</h1>
-    <p class="page-description">A home for research, collaborations, and things I’ve made.</p>
-  </section>
+  <div class="page-content"><PageHeader eyebrow="Work and research" title="Projects" description="A home for research, collaborations, and things I’ve made." /></div>
 </SiteLayout>

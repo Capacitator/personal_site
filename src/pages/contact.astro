@@ -1,11 +1,8 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
 ---
 
 <SiteLayout title="Contact" description="Get in touch with Sufal Kumar Chhabra.">
-  <section class="page-content">
-    <p class="eyebrow">Say hello</p>
-    <h1>Contact</h1>
-    <p class="page-description">A place to get in touch. Contact details will go here soon.</p>
-  </section>
+  <div class="page-content"><PageHeader eyebrow="Say hello" title="Contact" description="A place to get in touch. Contact details will go here soon." /></div>
 </SiteLayout>
